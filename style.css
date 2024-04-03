@@ -726,4 +726,7 @@ footer .container-fluid .container .row .copy-right a:hover {
     left: 0;
   }
 }
+.close-list-lv1 {
+  display: none;
+}
 /* -------------------------- */

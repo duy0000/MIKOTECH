@@ -273,6 +273,9 @@
                 <a class="list-link-first-a" href="#">thiết kế website</a
                 ><i class="fa-solid fa-angle-right open-list-lv1-mobile"></i>
                 <ul class="list-lv1">
+                  <li class="close-list-lv1">
+                    <i class="fa-solid fa-xmark"></i>
+                  </li>
                   <li><a href="#">Thiết Kế Website Bán Hàng</a></li>
                   <li><a href="#">Thiết Kế Website Bán Hàng</a></li>
                   <li><a href="#">Thiết Kế Website Bán Hàng</a></li>
@@ -282,6 +285,9 @@
                 <a class="list-link-first-a" href="#">dịch vụ</a
                 ><i class="fa-solid fa-angle-right open-list-lv1-mobile"></i>
                 <ul class="list-lv1">
+                  <li class="close-list-lv1">
+                    <i class="fa-solid fa-xmark"></i>
+                  </li>
                   <li><a href="#">Thiết Kế Website</a></li>
                   <li><a href="#">Thiết Kế Website</a></li>
                   <li><a href="#">Thiết Kế Website</a></li>
@@ -297,6 +303,9 @@
                 <a class="list-link-first-a" href="#">blog</a
                 ><i class="fa-solid fa-angle-right open-list-lv1-mobile"></i>
                 <ul class="list-lv1">
+                  <li class="close-list-lv1">
+                    <i class="fa-solid fa-xmark"></i>
+                  </li>
                   <li>
                     <a href="#">Thiết Kế SEO</a>
                     <ul class="list-lv2">
@@ -1351,6 +1360,44 @@
         // Thêm class 'active' vào thẻ i được click
         this.classList.toggle("fa-angle-down");
         this.classList.toggle("fa-angle-up");
+      });
+    });
+    // -------------------------------------
+    // Lấy tất cả các phần tử có class 'open-list-lv1-mobile'
+    var mobileToggles = document.querySelectorAll(".open-list-lv1-mobile");
+
+    // Duyệt qua từng phần tử và thêm sự kiện click
+    mobileToggles.forEach(function (toggle) {
+      toggle.addEventListener("click", function () {
+        var list = this.nextElementSibling; // Lấy phần tử anh em kế tiếp
+        list.classList.add("active"); // Thêm hoặc xoá class 'active' cho phần tử đó
+        console.log("đang mở");
+      });
+    });
+
+    // Chọn tất cả các phần tử i trong class "close-list-lv1"
+    var closeIcons = document.querySelectorAll(".close-list-lv1 i.fa-xmark");
+
+    // Duyệt qua từng biểu tượng và thêm sự kiện click
+    closeIcons.forEach(function (icon) {
+      icon.addEventListener("click", function () {
+        // Lấy phần tử cha của biểu tượng <i>
+        var parentElement = this.parentElement;
+        // Tìm phần tử <ul class="list-lv1"> trong phần tử cha
+        var list =
+          parentElement.parentElement.parentElement.querySelector(".list-lv1");
+
+        // Kiểm tra xem phần tử <ul class="list-lv1"> có tồn tại không
+        if (list) {
+          // Nếu tồn tại, thực hiện thêm/xoá class "active"
+          console.log("đang đóng");
+          list.classList.toggle("active");
+        } else {
+          // Nếu không tồn tại, in ra thông báo lỗi để debug
+          console.error(
+            "Phần tử <ul class='list-lv1'> không tồn tại hoặc không được tìm thấy."
+          );
+        }
       });
     });
   </script>
