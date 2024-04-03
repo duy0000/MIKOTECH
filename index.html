@@ -615,12 +615,6 @@
             <div><img src="./img/ss4-item-slider2-1.webp" alt="" /></div>
             <div><img src="./img/ss4-item-slider2-2.webp" alt="" /></div>
             <div><img src="./img/ss4-item-slider2-3.webp" alt="" /></div>
-            <div><img src="./img/ss4-item-slider2-1.webp" alt="" /></div>
-            <div><img src="./img/ss4-item-slider2-2.webp" alt="" /></div>
-            <div><img src="./img/ss4-item-slider2-3.webp" alt="" /></div>
-            <div><img src="./img/ss4-item-slider2-1.webp" alt="" /></div>
-            <div><img src="./img/ss4-item-slider2-2.webp" alt="" /></div>
-            <div><img src="./img/ss4-item-slider2-3.webp" alt="" /></div>
           </div>
           <div class="slider-4">
             <div class="content-slider-4">
@@ -1094,9 +1088,8 @@
                 <p>GỬI YÊU CẦU BÁO GIÁ DỊCH VỤ</p>
                 <i class="fa-solid fa-angle-down open-list-footer"></i>
               </div>
-            </div>
-            <div clas="information-list">
-              <form class="row">
+
+              <form class="row information-list">
                 <div class="col-12">
                   <p>
                     MIKO TECH luôn tư vấn dịch vụ miễn phí. Chúng tôi sẽ liên hệ
@@ -1209,6 +1202,14 @@
       autoplaySpeed: 2000,
       arrows: false,
       dots: true,
+      responsive: [
+        {
+          breakpoint: 550,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
     });
     $(".ss4-slider").slick({
       slidesToShow: 1,
@@ -1338,5 +1339,19 @@
     }
     // ---------------------------------------------------mở nav-lv1
     //---------------------------------------hiện list
+    const icons = document.querySelectorAll(".fa-angle-down");
+
+    // Lặp qua từng thẻ i và thêm sự kiện click
+    icons.forEach((icon) => {
+      icon.addEventListener("click", function () {
+        // Tìm phần tử cha của thẻ i có class 'information'
+        const information = this.closest(".information");
+        // Thêm class 'active' vào class 'information'
+        information.classList.toggle("active");
+        // Thêm class 'active' vào thẻ i được click
+        this.classList.toggle("fa-angle-down");
+        this.classList.toggle("fa-angle-up");
+      });
+    });
   </script>
 </html>

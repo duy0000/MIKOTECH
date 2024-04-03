@@ -625,7 +625,7 @@ footer .container-fluid .container .row .copy-right a:hover {
   height: 3px;
   margin: 35px 0;
   width: 80%;
-  display: flex;
+  display: flex !important;
   justify-content: flex-end;
   margin-left: 20%;
   overflow: hidden;
